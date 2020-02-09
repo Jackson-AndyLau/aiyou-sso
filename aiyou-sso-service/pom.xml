@@ -10,17 +10,19 @@
 	<artifactId>aiyou-sso-service</artifactId>
 	<packaging>war</packaging>
 	<dependencies>
-		<!-- 本地jar依赖包 -->
+		<!-- aiyou-sso-dao 依赖包 -->
 		<dependency>
 			<groupId>com.huazai.b2c.aiyou</groupId>
 			<artifactId>aiyou-sso-dao</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- aiyou-sso-pojo 依赖包 -->
 		<dependency>
 			<groupId>com.huazai.b2c.aiyou</groupId>
 			<artifactId>aiyou-sso-pojo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<!-- aiyou-sso-interface 依赖包 -->
 		<dependency>
 			<groupId>com.huazai.b2c.aiyou</groupId>
 			<artifactId>aiyou-sso-interface</artifactId>
@@ -70,6 +72,11 @@
 					<artifactId>netty</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<!-- activemq 相关 -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.zookeeper</groupId>
