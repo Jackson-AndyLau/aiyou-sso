@@ -6,4 +6,12 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>aiyou-sso-interface</artifactId>
+  <!-- aiyou-sso-pojo 依赖包 -->
+  	<dependencies>
+		<dependency>
+			<groupId>com.huazai.b2c.aiyou</groupId>
+			<artifactId>aiyou-sso-pojo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>
