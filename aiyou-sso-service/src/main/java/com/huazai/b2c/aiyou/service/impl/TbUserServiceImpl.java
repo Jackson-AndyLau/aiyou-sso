@@ -1,9 +1,11 @@
 package com.huazai.b2c.aiyou.service.impl;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -13,8 +15,10 @@ import com.huazai.b2c.aiyou.pojo.TbUser;
 import com.huazai.b2c.aiyou.pojo.TbUserExample;
 import com.huazai.b2c.aiyou.pojo.TbUserExample.Criteria;
 import com.huazai.b2c.aiyou.repo.AiyouResultData;
+import com.huazai.b2c.aiyou.service.TbJedisClientService;
 import com.huazai.b2c.aiyou.service.TbUserService;
 import com.huazai.b2c.aiyou.utils.DateTimeUtils;
+import com.huazai.b2c.aiyou.utils.JsonUtils;
 
 /**
  * 
@@ -35,6 +39,15 @@ public class TbUserServiceImpl implements TbUserService
 
 	@Autowired
 	private TbUserMapper tbUserMapper;
+	
+	@Autowired
+	private TbJedisClientService tbJedisClientService;
+	
+	@Value(value = "${TB_USER_INFO}")
+	private String TB_USER_INFO;
+	
+	@Value(value = "${TB_USER_INFO_EXPIRE}")
+	private Integer TB_USER_INFO_EXPIRE;
 
 	@Override
 	public AiyouResultData checkUserData(String param, int type)
@@ -78,7 +91,7 @@ public class TbUserServiceImpl implements TbUserService
 		{
 			return AiyouResultData.build(400, "注册失败，用户密码不能为空");
 		}
-		
+
 		// 校验用户信息是否可用
 		if (!(boolean) this.checkUserData(tbUser.getUsername(), 1).getData())
 		{
@@ -98,15 +111,15 @@ public class TbUserServiceImpl implements TbUserService
 				return AiyouResultData.build(400, "该邮箱被注册");
 			}
 		}
-		
+
 		// MD5 加密密码
 		String passString = DigestUtils.md5DigestAsHex(tbUser.getPassword().getBytes());
 		tbUser.setPassword(passString);
-		
+
 		// 不去用户属性
 		tbUser.setCreated(DateTimeUtils.getCurrentDateTime());
 		tbUser.setUpdated(DateTimeUtils.getCurrentDateTime());
-		
+
 		// 插入数据
 		try
 		{
@@ -114,9 +127,46 @@ public class TbUserServiceImpl implements TbUserService
 		} catch (Exception e)
 		{
 			e.printStackTrace();
-			return AiyouResultData.build(400, "用户注册异常，请联系管理员");
+			return AiyouResultData.build(400, "用户注册异常，后台小哥哥正在努力修改中");
 		}
 		return AiyouResultData.ok();
+	}
+
+	@Override
+	public AiyouResultData login(String username, String passworld)
+	{
+		// 查询用户信息
+		TbUserExample tbUserExample = new TbUserExample();
+		Criteria createCriteria = tbUserExample.createCriteria();
+		createCriteria.andUsernameEqualTo(username);
+		List<TbUser> tbUsers = tbUserMapper.selectByExample(tbUserExample);
+
+		// 判断用户名是否正确
+		if (CollectionUtils.isEmpty(tbUsers))
+		{
+			return AiyouResultData.build(400, "用户名或密码错误");
+		}
+
+		// 判断密码是否错误
+		TbUser tbUser = tbUsers.get(0);
+		if (!tbUser.getPassword().equals(DigestUtils.md5DigestAsHex(passworld.getBytes())))
+		{
+			return AiyouResultData.build(400, "用户名或密码错误");
+		}
+		
+		// 通过校验，登录成功，生成Token,使用UUID
+		String token = UUID.randomUUID().toString();
+		try
+		{
+			tbUser.setPassword(null);
+			tbJedisClientService.set(TB_USER_INFO+":"+token, JsonUtils.objectToJson(tbUser));
+			tbJedisClientService.expire(TB_USER_INFO+":"+token,TB_USER_INFO_EXPIRE);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return AiyouResultData.build(400, "登录异常，后台小哥哥正在努力修改中");
+		}
+		return AiyouResultData.ok(token);
 	}
 
 }

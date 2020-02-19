@@ -46,12 +46,30 @@ public interface TbUserService
 	 * @description 注册用户信息
 	 *              </ul>
 	 * @createdTime 2017年06月17日
-	 * @param tbUser
+	 * @param tbUser 用户实体
 	 * @return
 	 * @return AiyouResultData
 	 *
 	 * @version : V1.0.0
 	 */
 	public AiyouResultData registerInfo(TbUser tbUser);
+
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title login
+	 *        <ul>
+	 * @description 用户登录接口
+	 *              </ul>
+	 * @createdTime 2017年06月17日
+	 * @param username
+	 * @param passworld
+	 * @return
+	 * @return AiyouResultData
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData login(String username, String passworld);
 
 }
