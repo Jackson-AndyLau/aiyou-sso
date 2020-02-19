@@ -34,5 +34,8 @@
 	<dubbo:service
 		interface="com.huazai.b2c.aiyou.service.TbDubboService"
 		ref="tbDubboServiceImpl" timeout="30000" />
+	<dubbo:service
+		interface="com.huazai.b2c.aiyou.service.TbUserService"
+		ref="tbUserServiceImpl" timeout="30000" />
 
 </beans>
