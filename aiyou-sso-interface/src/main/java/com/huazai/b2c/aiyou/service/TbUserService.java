@@ -72,4 +72,21 @@ public interface TbUserService
 	 */
 	public AiyouResultData login(String username, String password);
 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title getUserInfoByToken
+	 *        <ul>
+	 * @description 根据 Token 获取用户信息
+	 *              </ul>
+	 * @createdTime 2017年06月17日
+	 * @param token
+	 * @return
+	 * @return AiyouResultData
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData getUserInfoByToken(String token);
+
 }

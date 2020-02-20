@@ -39,15 +39,15 @@ public class TbUserServiceImpl implements TbUserService
 
 	@Autowired
 	private TbUserMapper tbUserMapper;
-	
+
 	@Autowired
 	private TbJedisClientService tbJedisClientService;
-	
-	@Value(value = "${TB_USER_INFO}")
-	private String TB_USER_INFO;
-	
-	@Value(value = "${TB_USER_INFO_EXPIRE}")
-	private Integer TB_USER_INFO_EXPIRE;
+
+	@Value(value = "${TB_LOGIN_USER_INFO_KEY}")
+	private String TB_LOGIN_USER_INFO_KEY;
+
+	@Value(value = "${TB_LOGIN_USER_INFO_KEY_EXPIRE}")
+	private Integer TB_LOGIN_USER_INFO_KEY_EXPIRE;
 
 	@Override
 	public AiyouResultData checkUserData(String param, int type)
@@ -153,20 +153,38 @@ public class TbUserServiceImpl implements TbUserService
 		{
 			return AiyouResultData.build(400, "用户名或密码错误");
 		}
-		
+
 		// 通过校验，登录成功，生成Token,使用UUID
 		String token = UUID.randomUUID().toString();
 		try
 		{
 			tbUser.setPassword(null);
-			tbJedisClientService.set(TB_USER_INFO+":"+token, JsonUtils.objectToJson(tbUser));
-			tbJedisClientService.expire(TB_USER_INFO+":"+token,TB_USER_INFO_EXPIRE);
+			tbJedisClientService.set(TB_LOGIN_USER_INFO_KEY + ":" + token, JsonUtils.objectToJson(tbUser));
+			tbJedisClientService.expire(TB_LOGIN_USER_INFO_KEY_EXPIRE + ":" + token, TB_LOGIN_USER_INFO_KEY_EXPIRE);
 		} catch (Exception e)
 		{
 			e.printStackTrace();
 			return AiyouResultData.build(400, "登录异常，后台小哥哥正在努力修改中");
 		}
 		return AiyouResultData.ok(token);
+	}
+
+	@Override
+	public AiyouResultData getUserInfoByToken(String token)
+	{
+		// 获取用户登录信息
+		String resultUserInfo = tbJedisClientService.get(TB_LOGIN_USER_INFO_KEY + ":" + token);
+		if (StringUtils.isBlank(resultUserInfo))
+		{
+			return AiyouResultData.build(400, "用户登录已过期，请重新登录");
+		}
+
+		// 刷新Token过期时间
+		tbJedisClientService.expire(TB_LOGIN_USER_INFO_KEY + ":" + token, TB_LOGIN_USER_INFO_KEY_EXPIRE);
+
+		// 返回用户信息
+		TbUser tbUser = JsonUtils.jsonToPojo(resultUserInfo, TbUser.class);
+		return AiyouResultData.ok(tbUser);
 	}
 
 }
