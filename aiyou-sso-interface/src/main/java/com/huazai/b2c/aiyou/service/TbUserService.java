@@ -70,6 +70,6 @@ public interface TbUserService
 	 *
 	 * @version : V1.0.0
 	 */
-	public AiyouResultData login(String username, String passworld);
+	public AiyouResultData login(String username, String password);
 
 }
