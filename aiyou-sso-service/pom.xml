@@ -10,6 +10,12 @@
 	<artifactId>aiyou-sso-service</artifactId>
 	<packaging>war</packaging>
 	<dependencies>
+		<!-- aiyou-common 依赖包 -->
+		<dependency>
+			<groupId>com.huazai.b2c.aiyou</groupId>
+			<artifactId>aiyou-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<!-- aiyou-sso-dao 依赖包 -->
 		<dependency>
 			<groupId>com.huazai.b2c.aiyou</groupId>
