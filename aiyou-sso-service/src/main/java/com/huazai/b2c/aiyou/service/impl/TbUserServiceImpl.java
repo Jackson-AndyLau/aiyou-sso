@@ -187,4 +187,13 @@ public class TbUserServiceImpl implements TbUserService
 		return AiyouResultData.ok(tbUser);
 	}
 
+	@Override
+	public AiyouResultData loginOut(String token)
+	{
+		// 根据Token清除用户登录信息
+		tbJedisClientService.del(TB_LOGIN_USER_INFO_KEY + ":" + token);
+		
+		return AiyouResultData.ok();
+	}
+
 }

@@ -55,6 +55,24 @@ public interface TbJedisClientService
 	 * 
 	 * @author HuaZai
 	 * @contact who.seek.me@java98k.vip
+	 * @title set
+	 *        <ul>
+	 * @description 根据Key，删除Value
+	 *              </ul>
+	 * @createdTime 2017年06月14日
+	 * @param key
+	 * @param value
+	 * @return
+	 * @return String
+	 *
+	 * @version : V1.0.0
+	 */
+	Long del(String key);
+
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
 	 * @title exists
 	 *        <ul>
 	 * @description 获取某个key是否存在

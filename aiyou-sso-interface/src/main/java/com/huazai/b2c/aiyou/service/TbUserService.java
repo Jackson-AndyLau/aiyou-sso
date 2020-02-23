@@ -89,4 +89,21 @@ public interface TbUserService
 	 */
 	public AiyouResultData getUserInfoByToken(String token);
 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title loginOut
+	 *        <ul>
+	 * @description 退出登录，根据用户Token删除Redis用户登录消息
+	 *              </ul>
+	 * @createdTime 2017年06月17日
+	 * @param token
+	 * @return
+	 * @return AiyouResultData
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData loginOut(String token);
+
 }

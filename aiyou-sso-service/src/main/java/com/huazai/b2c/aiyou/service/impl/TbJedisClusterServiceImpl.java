@@ -38,6 +38,13 @@ public class TbJedisClusterServiceImpl implements TbJedisClientService
 		String result = jedisCluster.get(key);
 		return result;
 	}
+	
+	@Override
+	public Long del(String key)
+	{
+		Long result = jedisCluster.del(key);
+		return result;
+	}
 
 	@Override
 	public Boolean exists(String key)
