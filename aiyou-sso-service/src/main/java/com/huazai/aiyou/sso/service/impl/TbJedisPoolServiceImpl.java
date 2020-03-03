@@ -1,8 +1,8 @@
-package com.huazai.b2c.aiyou.service.impl;
+package com.huazai.aiyou.sso.service.impl;
 
 import javax.annotation.Resource;
 
-import com.huazai.b2c.aiyou.service.TbJedisClientService;
+import com.huazai.aiyou.sso.service.TbJedisClientService;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;

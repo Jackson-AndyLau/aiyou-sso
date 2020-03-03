@@ -1,4 +1,4 @@
-package com.huazai.b2c.aiyou.service.impl;
+package com.huazai.aiyou.sso.service.impl;
 
 import java.util.List;
 import java.util.UUID;
@@ -10,15 +10,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
-import com.huazai.b2c.aiyou.mapper.TbUserMapper;
-import com.huazai.b2c.aiyou.pojo.TbUser;
-import com.huazai.b2c.aiyou.pojo.TbUserExample;
-import com.huazai.b2c.aiyou.pojo.TbUserExample.Criteria;
-import com.huazai.b2c.aiyou.repo.AiyouResultData;
-import com.huazai.b2c.aiyou.service.TbJedisClientService;
-import com.huazai.b2c.aiyou.service.TbUserService;
-import com.huazai.b2c.aiyou.utils.DateTimeUtils;
-import com.huazai.b2c.aiyou.utils.JsonUtils;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.common.utils.DateTimeUtils;
+import com.huazai.aiyou.common.utils.JsonUtils;
+import com.huazai.aiyou.sso.mapper.TbUserMapper;
+import com.huazai.aiyou.sso.pojo.TbUser;
+import com.huazai.aiyou.sso.pojo.TbUserExample;
+import com.huazai.aiyou.sso.pojo.TbUserExample.Criteria;
+import com.huazai.aiyou.sso.service.TbJedisClientService;
+import com.huazai.aiyou.sso.service.TbUserService;
 
 /**
  * 

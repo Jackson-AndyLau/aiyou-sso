@@ -1,9 +1,12 @@
-package com.huazai.b2c.aiyou.mapper;
+package com.huazai.aiyou.sso.mapper;
 
-import com.huazai.b2c.aiyou.pojo.TbUser;
-import com.huazai.b2c.aiyou.pojo.TbUserExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+
+import com.huazai.aiyou.sso.pojo.TbUser;
+import com.huazai.aiyou.sso.pojo.TbUserExample;
+
 
 /**
  * 

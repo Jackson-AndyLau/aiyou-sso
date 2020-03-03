@@ -1,7 +1,7 @@
-package com.huazai.b2c.aiyou.service;
+package com.huazai.aiyou.sso.service;
 
-import com.huazai.b2c.aiyou.pojo.TbUser;
-import com.huazai.b2c.aiyou.repo.AiyouResultData;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.sso.pojo.TbUser;
 
 /**
  * 

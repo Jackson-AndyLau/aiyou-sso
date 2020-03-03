@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.huazai.b2c.aiyou</groupId>
+		<groupId>com.huazai.aiyou.sso</groupId>
 		<artifactId>aiyou-sso</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -12,25 +12,31 @@
 	<dependencies>
 		<!-- aiyou-common 依赖包 -->
 		<dependency>
-			<groupId>com.huazai.b2c.aiyou</groupId>
+			<groupId>com.huazai.aiyou.common</groupId>
 			<artifactId>aiyou-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- aiyou-sso-dao 依赖包 -->
 		<dependency>
-			<groupId>com.huazai.b2c.aiyou</groupId>
+			<groupId>com.huazai.aiyou.sso</groupId>
 			<artifactId>aiyou-sso-dao</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- aiyou-sso-pojo 依赖包 -->
 		<dependency>
-			<groupId>com.huazai.b2c.aiyou</groupId>
+			<groupId>com.huazai.aiyou.sso</groupId>
 			<artifactId>aiyou-sso-pojo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- aiyou-manager-pojo 依赖包 -->
+		<dependency>
+			<groupId>com.huazai.aiyou.manager</groupId>
+			<artifactId>aiyou-manager-pojo</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- aiyou-sso-interface 依赖包 -->
 		<dependency>
-			<groupId>com.huazai.b2c.aiyou</groupId>
+			<groupId>com.huazai.aiyou.sso</groupId>
 			<artifactId>aiyou-sso-interface</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

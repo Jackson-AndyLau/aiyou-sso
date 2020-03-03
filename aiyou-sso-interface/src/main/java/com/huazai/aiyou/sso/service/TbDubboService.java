@@ -1,19 +1,19 @@
-package com.huazai.b2c.aiyou.mapper;
+package com.huazai.aiyou.sso.service;
 
 /**
  * 
  * @author HuaZai
  * @contact who.seek.me@java98k.vip
  *          <ul>
- * @description 测试
+ * @description TODO
  *              </ul>
- * @className TDubboMapper
- * @package com.huazai.b2c.aiyou.mapper
+ * @className TDubboService
+ * @package com.huazai.b2c.aiyou.service
  * @createdTime 2017年06月07日
  *
  * @version V1.0.0
  */
-public interface TbDubboMapper
+public interface TbDubboService
 {
 
 	public String getLocalDate();

@@ -1,10 +1,10 @@
-package com.huazai.b2c.aiyou.service.impl;
+package com.huazai.aiyou.sso.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.huazai.b2c.aiyou.mapper.TbDubboMapper;
-import com.huazai.b2c.aiyou.service.TbDubboService;
+import com.huazai.aiyou.sso.mapper.TbDubboMapper;
+import com.huazai.aiyou.sso.service.TbDubboService;
 
 /**
  * 
