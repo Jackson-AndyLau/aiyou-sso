@@ -43,11 +43,11 @@ public class TbUserServiceImpl implements TbUserService
 	@Autowired
 	private TbJedisClientService tbJedisClientService;
 
-	@Value(value = "${TB_LOGIN_USER_INFO_KEY}")
-	private String TB_LOGIN_USER_INFO_KEY;
+	@Value(value = "${AIYOU_TB_LOGIN_USER_INFO_KEY}")
+	private String AIYOU_TB_LOGIN_USER_INFO_KEY;
 
-	@Value(value = "${TB_LOGIN_USER_INFO_KEY_EXPIRE}")
-	private Integer TB_LOGIN_USER_INFO_KEY_EXPIRE;
+	@Value(value = "${AIYOU_TB_LOGIN_USER_INFO_KEY_EXPIRE}")
+	private Integer AIYOU_TB_LOGIN_USER_INFO_KEY_EXPIRE;
 
 	@Override
 	public AiyouResultData checkUserData(String param, int type)
@@ -172,8 +172,8 @@ public class TbUserServiceImpl implements TbUserService
 		try
 		{
 			tbUser.setPassword(null);
-			tbJedisClientService.set(TB_LOGIN_USER_INFO_KEY + ":" + token, JsonUtils.objectToJson(tbUser));
-			tbJedisClientService.expire(TB_LOGIN_USER_INFO_KEY_EXPIRE + ":" + token, TB_LOGIN_USER_INFO_KEY_EXPIRE);
+			tbJedisClientService.set(AIYOU_TB_LOGIN_USER_INFO_KEY + ":" + token, JsonUtils.objectToJson(tbUser));
+			tbJedisClientService.expire(AIYOU_TB_LOGIN_USER_INFO_KEY + ":" + token, AIYOU_TB_LOGIN_USER_INFO_KEY_EXPIRE);
 		} catch (Exception e)
 		{
 			e.printStackTrace();
@@ -186,14 +186,14 @@ public class TbUserServiceImpl implements TbUserService
 	public AiyouResultData getUserInfoByToken(String token)
 	{
 		// 获取用户登录信息
-		String resultUserInfo = tbJedisClientService.get(TB_LOGIN_USER_INFO_KEY + ":" + token);
+		String resultUserInfo = tbJedisClientService.get(AIYOU_TB_LOGIN_USER_INFO_KEY + ":" + token);
 		if (StringUtils.isBlank(resultUserInfo))
 		{
 			return AiyouResultData.build(400, "用户登录已过期，请重新登录");
 		}
 
 		// 刷新Token过期时间
-		tbJedisClientService.expire(TB_LOGIN_USER_INFO_KEY + ":" + token, TB_LOGIN_USER_INFO_KEY_EXPIRE);
+		tbJedisClientService.expire(AIYOU_TB_LOGIN_USER_INFO_KEY + ":" + token, AIYOU_TB_LOGIN_USER_INFO_KEY_EXPIRE);
 
 		// 返回用户信息
 		TbUser tbUser = JsonUtils.jsonToPojo(resultUserInfo, TbUser.class);
@@ -206,7 +206,7 @@ public class TbUserServiceImpl implements TbUserService
 		try
 		{
 			// 根据Token清除用户登录信息
-			tbJedisClientService.del(TB_LOGIN_USER_INFO_KEY + ":" + token);
+			tbJedisClientService.del(AIYOU_TB_LOGIN_USER_INFO_KEY + ":" + token);
 
 		} catch (Exception e)
 		{
