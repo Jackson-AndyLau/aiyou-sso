@@ -22,7 +22,7 @@ public interface TbDubboService
 	 * @contact who.seek.me@java98k.vip
 	 * @title getLocalDate
 	 *        <ul>
-	 * @description 获取本地有效时间
+	 * @description 获取本地有效日期
 	 *              </ul>
 	 * @createdTime 2017年06月19日
 	 * @return
