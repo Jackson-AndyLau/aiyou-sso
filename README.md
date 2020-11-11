@@ -1062,4 +1062,4 @@ AIYOU_TB_SERVICE_ITEM_INFO_KEY
 <br>
 **《 [CSDN -> B2C商城项目源码说明，基于Java开发的高可用分布式B2C商城系统](https://blog.csdn.net/Hello_World_QWP/article/details/106919419) 》**
 
-[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>回到顶部<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<](https://github.com/Jackson-AndyLau/aiyou-sso/blob/master/README.md#aiyou-sso)
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>回到顶部<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<](https://github.com/Jackson-AndyLau/aiyou-sso#aiyou-sso)
