@@ -188,4 +188,797 @@ vaiyou-order-web|	订单系统	|2|	1	|192.168.159.147|	8001~8002|
 6、aiyou-cart-web<br>
 7、aiyou-order-web<br>
 
+## 六、B2C商城示例代码演示
+本项目所有代码均按照统一规范编写，严格遵循MVC三层架构设计模式实现，风格统一，代码整洁、美观、大方，重要的一点，注释多多，关键节点都有注释注明，方便阅读代码，示例代码如下：
 
+### Controller 控制层：
+
+```Java
+package com.huazai.aiyou.manager.controller;
+ 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Description;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+ 
+import com.huazai.aiyou.common.module.EasyUIDataGrid;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.manager.pojo.TbItem;
+import com.huazai.aiyou.manager.service.TbItemDescService;
+import com.huazai.aiyou.manager.service.TbItemService;
+ 
+/**
+ * 
+ * @author HuaZai
+ * @contact who.seek.me@java98k.vip
+ *          <ul>
+ * @description 商品信息controller层
+ *              </ul>
+ * @className TbItemController
+ * @package com.huazai.b2c.aiyou.controller
+ * @createdTime 2017年06月09日
+ *
+ * @version V1.0.0
+ */
+@Controller
+@RequestMapping(value = "/item")
+public class TbItemController
+{
+ 
+	@Autowired
+	private TbItemService tbItemService;
+ 
+	@Autowired
+	private TbItemDescService tbItemDescService;
+ 
+	@Description(value = "获取商品列表")
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@ResponseBody
+	public EasyUIDataGrid getItemList(@RequestParam(value = "page", defaultValue = "1") Integer page,
+			@RequestParam(value = "row", defaultValue = "30") Integer rows)
+	{
+		EasyUIDataGrid easyUIDataGrid = tbItemService.getTbItemList(page, rows, null);
+		return easyUIDataGrid;
+	}
+ 
+	@Description(value = "添加商品")
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@ResponseBody
+	public AiyouResultData addTbItem(TbItem item, String desc)
+	{
+		AiyouResultData resultData = tbItemService.addTbItem(item, desc);
+		return resultData;
+	}
+ 
+	@Description(value = "删除商品")
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	@ResponseBody
+	public AiyouResultData deleteTbItem(String ids)
+	{
+		AiyouResultData resultData = tbItemService.deleteTbItem(ids);
+		return resultData;
+	}
+ 
+	@Description(value = "下架商品")
+	@RequestMapping(value = "/instock", method = RequestMethod.POST)
+	@ResponseBody
+	public AiyouResultData instockTbItem(String ids)
+	{
+		AiyouResultData resultData = tbItemService.instockTbItem(ids);
+		return resultData;
+	}
+ 
+	@Description(value = "上架商品")
+	@RequestMapping(value = "/reshelf", method = RequestMethod.POST)
+	@ResponseBody
+	public AiyouResultData reshelfTbItem(String ids)
+	{
+		AiyouResultData resultData = tbItemService.reshelfTbItem(ids);
+		return resultData;
+	}
+ 
+	@Description(value = "查询商品参数")
+	@RequestMapping(value = "/param/item/query/{itemId}")
+	@ResponseBody
+	public AiyouResultData queryTbItemParam(@PathVariable(value = "itemId") Long itemId)
+	{
+		AiyouResultData resultData = tbItemService.findTbItemById(itemId);
+		return resultData;
+	}
+ 
+	@Description(value = "查询商品描述信息")
+	@RequestMapping(value = "/query/item/desc/{itemId}")
+	@ResponseBody
+	private AiyouResultData queryTbItemDesc(@PathVariable(value = "itemId") Long itemId)
+	{
+		AiyouResultData resultData = tbItemDescService.findTbItemDescById(itemId);
+		return resultData;
+	}
+ 
+	@Description(value = "修改商品信息")
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
+	@ResponseBody
+	public AiyouResultData updateTbItem(TbItem tbItem, String desc)
+	{
+		AiyouResultData resultData = tbItemService.updateTbItem(tbItem, desc);
+		return resultData;
+	}
+ 
+}
+```
+
+### Service 接口层：
+```Java
+package com.huazai.aiyou.manager.service;
+ 
+import com.huazai.aiyou.common.module.EasyUIDataGrid;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.manager.pojo.TbItemDesc;
+ 
+/**
+ * 
+ * @author HuaZai
+ * @contact who.seek.me@java98k.vip
+ *          <ul>
+ * @description 商品描述接口
+ *              </ul>
+ * @className TbItemDescService
+ * @package com.huazai.b2c.aiyou.service
+ * @createdTime 2017年06月09日
+ *
+ * @version V1.0.0
+ */
+public interface TbItemDescService {
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title getItemDescList
+	 *        <ul>
+	 * @description 获取商品描述列表
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param pageNum    当前页码
+	 * @param pageSize   页大小
+	 * @param tbItemDesc 查询条件
+	 * @return EasyUIDataGrid 数据列表
+	 *
+	 * @version : V1.0.0
+	 */
+	public EasyUIDataGrid getItemDescList(Integer pageNum, Integer pageSize, TbItemDesc tbItemDesc);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title findTbItemDescById
+	 *        <ul>
+	 * @description 根据商品ID获取商品描述
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param itemId 商品ID
+	 * @return AiyouResultData 商品数据
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData findTbItemDescById(long itemId);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title geTbItemDescById
+	 *        <ul>
+	 * @description 通过商品Id,获取商品描述
+	 *              </ul>
+	 * @createdTime 2017年06月18日
+	 * @param itemId 商品ID
+	 * @return TbItemDesc 商品描述
+	 *
+	 * @version : V1.0.0
+	 */
+	public TbItemDesc geTbItemDescById(Long itemId);
+}
+```
+
+```Java
+package com.huazai.aiyou.manager.service;
+ 
+import com.huazai.aiyou.common.module.EasyUIDataGrid;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.manager.pojo.TbItem;
+ 
+/**
+ * 
+ * @author HuaZai
+ * @contact who.seek.me@java98k.vip
+ *          <ul>
+ * @description 商品接口类
+ *              </ul>
+ * @className ItemService
+ * @package com.huazai.b2c.aiyou.service
+ * @createdTime 2017年06月09日
+ *
+ * @version V1.0.0
+ */
+public interface TbItemService {
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title getItemList
+	 *        <ul>
+	 * @description 获取商品列表
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param pageNum  当前页码
+	 * @param pageSize 页大小
+	 * @param item     查询条件
+	 * @return EasyUIDataGrid 返回数据载体
+	 *
+	 * @version : V1.0.0
+	 */
+	public EasyUIDataGrid getTbItemList(Integer pageNum, Integer pageSize, TbItem item);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title saveTbItem
+	 *        <ul>
+	 * @description 添加商品
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param item 商品实体
+	 * @param desc 商品描述
+	 * @return AiyouResultData 相应数据载体
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData addTbItem(TbItem item, String itemDesc);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title deleteTbItem
+	 *        <ul>
+	 * @description 删除商品信息
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param ids 商品ID集合
+	 * @return AiyouResultData 数据载体
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData deleteTbItem(String ids);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title instockTbItem
+	 *        <ul>
+	 * @description 下架商品
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param ids 商品ID集合
+	 * @return AiyouResultData 数据载体
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData instockTbItem(String ids);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title reshelfTbItem
+	 *        <ul>
+	 * @description 上架商品
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param ids 商品ID集合
+	 * @return AiyouResultData 数据载体
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData reshelfTbItem(String ids);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title findTbItemById
+	 *        <ul>
+	 * @description 根据商品ID获取商品信息
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param itemId 商品ID
+	 * @return AiyouResultData 数据载体
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData findTbItemById(Long itemId);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title updateTbItem
+	 *        <ul>
+	 * @description 修改商品信息
+	 *              </ul>
+	 * @createdTime 2017年06月11日
+	 * @param item 商品信息实体
+	 * @param desc 商品描述
+	 * @return AiyouResultData 数据载体
+	 *
+	 * @version : V1.0.0
+	 */
+	public AiyouResultData updateTbItem(TbItem item, String desc);
+ 
+	/**
+	 * 
+	 * @author HuaZai
+	 * @contact who.seek.me@java98k.vip
+	 * @title getTbItemById
+	 *        <ul>
+	 * @description 根据商品Id，查询商品详情
+	 *              </ul>
+	 * @createdTime 2017年06月18日
+	 * @param itemId 商品ID
+	 * @return TbItem 商品信息
+	 *
+	 * @version : V1.0.0
+	 */
+	public TbItem getTbItemById(Long itemId);
+ 
+}
+```
+
+### Service 实现层：
+```Java
+package com.huazai.aiyou.manager.service.impl;
+ 
+import java.util.List;
+ 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+ 
+import com.alibaba.dubbo.common.utils.CollectionUtils;
+import com.huazai.aiyou.common.module.EasyUIDataGrid;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.common.utils.JsonUtils;
+import com.huazai.aiyou.manager.mapper.TbItemDescMapper;
+import com.huazai.aiyou.manager.pojo.TbItemDesc;
+import com.huazai.aiyou.manager.pojo.TbItemDescExample;
+import com.huazai.aiyou.manager.pojo.TbItemDescExample.Criteria;
+import com.huazai.aiyou.manager.service.TbItemDescService;
+import com.huazai.aiyou.manager.service.TbJedisClientService;
+ 
+/**
+ * 
+ * @author HuaZai
+ * @contact who.seek.me@java98k.vip
+ *          <ul>
+ * @description 商品描述实现类
+ *              </ul>
+ * @className TbItemDescServiceImpl
+ * @package com.huazai.b2c.aiyou.service.impl
+ * @createdTime 2017年06月09日
+ *
+ * @version V1.0.0
+ */
+@Service
+public class TbItemDescServiceImpl implements TbItemDescService
+{
+ 
+	@Autowired
+	private TbItemDescMapper tbItemDescMapper;
+ 
+	@Autowired
+	private TbJedisClientService tbJedisClientService;
+ 
+	@Value("${AIYOU_TB_SERVICE_ITEM_INFO_KEY}")
+	private String AIYOU_TB_SERVICE_ITEM_INFO_KEY;
+ 
+	@Value("${AIYOU_TB_SERVICE_ITEM_INFO_KEY_EXPIRE}")
+	private Integer AIYOU_TB_SERVICE_ITEM_INFO_KEY_EXPIRE;
+ 
+	@Override
+	public EasyUIDataGrid getItemDescList(Integer pageNum, Integer pageSize, TbItemDesc tbItemDesc)
+	{
+        // TODO
+ 
+		return null;
+	}
+ 
+	@Override
+	public AiyouResultData findTbItemDescById(long itemId)
+	{
+		TbItemDesc itemDesc = null;
+		try
+		{
+			// 查询商品信息
+			TbItemDescExample example = new TbItemDescExample();
+			Criteria criteria = example.createCriteria();
+			criteria.andItemIdEqualTo(itemId);
+			List<TbItemDesc> list = tbItemDescMapper.selectByExampleWithBLOBs(example);
+			if(CollectionUtils.isNotEmpty(list))
+            {
+				itemDesc = list.get(0);
+			}
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return AiyouResultData.build(-1, "商品描述查询异常");
+		}
+		return AiyouResultData.ok(itemDesc);
+	}
+ 
+	@Override
+	public TbItemDesc geTbItemDescById(Long itemId)
+	{
+		try
+		{
+			// 从缓存中获取数据
+			if (itemId != null)
+			{
+				// 获取数据
+				String str = tbJedisClientService.get(AIYOU_TB_SERVICE_ITEM_INFO_KEY + ":" + itemId + ":BASE");
+				if (!StringUtils.isEmpty(str))
+				{
+					// 重置数据的有效时间
+					tbJedisClientService.expire(AIYOU_TB_SERVICE_ITEM_INFO_KEY + ":" + itemId + ":BASE",
+							AIYOU_TB_SERVICE_ITEM_INFO_KEY_EXPIRE);
+					// 解析数据并返回
+					TbItemDesc tbItemDesc = JsonUtils.jsonToPojo(str, TbItemDesc.class);
+					return tbItemDesc;
+				}
+			}
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		TbItemDesc tbItemDesc = tbItemDescMapper.selectByPrimaryKey(itemId);
+		try
+		{
+			// 新增缓存
+			tbJedisClientService.set(AIYOU_TB_SERVICE_ITEM_INFO_KEY + ":" + itemId + ":BASE",
+					JsonUtils.objectToJson(tbItemDesc));
+			// 设置过期时间
+			tbJedisClientService.expire(AIYOU_TB_SERVICE_ITEM_INFO_KEY + ":" + itemId + ":BASE",
+					AIYOU_TB_SERVICE_ITEM_INFO_KEY_EXPIRE);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return tbItemDesc;
+	}
+ 
+}
+```
+
+```Java
+package com.huazai.aiyou.manager.service.impl;
+ 
+import java.util.Date;
+import java.util.List;
+ 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+ 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+ 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.huazai.aiyou.common.constant.TbConstant;
+import com.huazai.aiyou.common.module.EasyUIDataGrid;
+import com.huazai.aiyou.common.response.AiyouResultData;
+import com.huazai.aiyou.common.utils.IDUtils;
+import com.huazai.aiyou.common.utils.JsonUtils;
+import com.huazai.aiyou.manager.mapper.TbItemDescMapper;
+import com.huazai.aiyou.manager.mapper.TbItemMapper;
+import com.huazai.aiyou.manager.pojo.TbItem;
+import com.huazai.aiyou.manager.pojo.TbItemDesc;
+import com.huazai.aiyou.manager.pojo.TbItemExample;
+import com.huazai.aiyou.manager.pojo.TbItemExample.Criteria;
+import com.huazai.aiyou.manager.service.TbItemService;
+import com.huazai.aiyou.manager.service.TbJedisClientService;
+ 
+/**
+ * 
+ * @author HuaZai
+ * @contact who.seek.me@java98k.vip
+ *          <ul>
+ * @description 商品实现类
+ *              </ul>
+ * @className TbItemServiceImpl
+ * @package com.huazai.b2c.aiyou.service.impl
+ * @createdTime 2017年06月09日
+ *
+ * @version V1.0.0
+ */
+@Service
+public class TbItemServiceImpl implements TbItemService
+{
+	@Autowired
+	private TbItemMapper tbItemMapper;
+ 
+	@Autowired
+	private TbItemDescMapper tbItemDescMapper;
+ 
+	@Autowired
+	private JmsTemplate jmsTemplate;
+ 
+	@Autowired
+	private TbJedisClientService tbJedisClientService;
+ 
+	@Resource(name = "itemTopicDestination")
+	private Destination itemTopicDestination;
+ 
+	@Value("${AIYOU_TB_SERVICE_ITEM_INFO_KEY}")
+	private String AIYOU_TB_SERVICE_ITEM_INFO_KEY;
+ 
+	@Value("${AIYOU_TB_SERVICE_ITEM_INFO_KEY_EXPIRE}")
+	private Integer AIYOU_TB_SERVICE_ITEM_INFO_KEY_EXPIRE;
+ 
+	@Override
+	public EasyUIDataGrid getTbItemList(Integer pageNum, Integer pageSize, TbItem item)
+	{
+		// 初始化数据载体
+		EasyUIDataGrid resultData = new EasyUIDataGrid();
+		try
+		{
+			// 通过PageHelper设置分页信息
+			PageHelper.startPage(pageNum, pageSize);
+			// 设置查询条件获得查询结果
+			TbItemExample example = new TbItemExample();
+			Criteria criteria = example.createCriteria();
+			if (!StringUtils.isEmpty(item) && item.getCid() != null)
+				criteria.andCidEqualTo(item.getCid());
+			criteria.andStatusNotEqualTo(Byte.valueOf("3"));
+			List<TbItem> list = tbItemMapper.selectByExample(example);
+			// 获取分页信息
+			PageInfo<TbItem> pageInfo = new PageInfo<>(list);
+			// 封装数据
+			resultData.setRows(list);
+			resultData.setTotal(pageInfo.getTotal());
+			resultData.setPageSize(pageInfo.getPageSize());
+			resultData.setPageNum(pageInfo.getPageNum());
+			resultData.setPages(pageInfo.getPages());
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return resultData;
+	}
+ 
+	@Transactional
+	@Override
+	public AiyouResultData addTbItem(TbItem item, String itemDesc)
+	{
+		// 获取生成商品ID
+		final long itemId = IDUtils.genItemId();
+		// 初始化系统时间
+		Date date = new Date();
+		// 补全商品信息
+		item.setId(itemId);
+		item.setStatus(TbConstant.TB_ITEM_STATUS_RESHELF);
+		item.setCreated(date);
+		item.setUpdated(date);
+		// 初始化 TbItemDesc 对象
+		TbItemDesc tbItemDesc = new TbItemDesc();
+		// 补全商品描述信息
+		tbItemDesc.setItemId(itemId);
+		tbItemDesc.setItemDesc(itemDesc);
+		tbItemDesc.setCreated(date);
+		tbItemDesc.setUpdated(date);
+		try
+		{
+			// 添加商品数据
+			tbItemMapper.insertSelective(item);
+			// 添加商品描述
+			tbItemDescMapper.insertSelective(tbItemDesc);
+			// 同步更新索引库
+			jmsTemplate.send(itemTopicDestination, new MessageCreator()
+			{
+				@Override
+				public Message createMessage(Session session) throws JMSException
+				{
+					TextMessage textMessage = session.createTextMessage(String.valueOf(String.valueOf(itemId)));
+					return textMessage;
+				}
+			});
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return AiyouResultData.build(-1, "添加商品失败");
+		}
+		return AiyouResultData.ok();
+	}
+ 
+	@Transactional
+	private void optByTbItemId(String ids, Byte status) throws Exception
+	{
+		String[] idStrings = ids.split(",");
+		for (int i = 0; i < idStrings.length; i++)
+		{
+			// 在一般的实际应用中，都是进行的是逻辑操作
+			TbItem tbItem = tbItemMapper.selectByPrimaryKey(Long.valueOf(idStrings[i]));
+			tbItem.setStatus(status);
+			tbItemMapper.updateByPrimaryKey(tbItem);
+			// 同步更新索引库
+            // TODO
+		}
+	}
+ 
+	@Transactional
+	@Override
+	public AiyouResultData deleteTbItem(String ids)
+	{
+		try
+		{
+			optByTbItemId(ids, TbConstant.TB_ITEM_STATUS_DELETE);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return AiyouResultData.build(-1, "商品删除异常");
+		}
+		return AiyouResultData.ok();
+	}
+ 
+	@Override
+	public AiyouResultData instockTbItem(String ids)
+	{
+		try
+		{
+			optByTbItemId(ids, TbConstant.TB_ITEM_STATUS_INSTOCK);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return AiyouResultData.build(-1, "商品下架异常");
+		}
+		return AiyouResultData.ok();
+	}
+ 
+	@Override
+	public AiyouResultData reshelfTbItem(String ids)
+	{
+		try
+		{
+			optByTbItemId(ids, TbConstant.TB_ITEM_STATUS_RESHELF);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return AiyouResultData.build(-1, "商品上架异常");
+		}
+		return AiyouResultData.ok();
+	}
+ 
+	@Override
+	public AiyouResultData findTbItemById(Long itemId)
+	{
+		TbItem tbItem;
+		try
+		{
+			tbItem = tbItemMapper.selectByPrimaryKey(itemId);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return AiyouResultData.build(-1, "商品信息查询异常");
+		}
+		return AiyouResultData.ok(tbItem);
+	}
+ 
+	@Transactional
+	@Override
+	public AiyouResultData updateTbItem(TbItem item, String desc)
+	{
+		try
+		{
+			// 修改商品信息
+			TbItem tbItem = tbItemMapper.selectByPrimaryKey(item.getId());
+			// 补全信息
+			Date date = new Date();
+			tbItem.setCid(item.getCid());
+			tbItem.setTitle(item.getTitle());
+			tbItem.setSellPoint(item.getSellPoint());
+			tbItem.setPrice(item.getPrice());
+			tbItem.setNum(item.getNum());
+			tbItem.setBarcode(item.getBarcode());
+			tbItem.setImage(item.getImage());
+			tbItem.setUpdated(date);
+			tbItemMapper.updateByPrimaryKey(tbItem);
+			// 修改商品描述
+			TbItemDesc tbItemDesc = tbItemDescMapper.selectByPrimaryKey(item.getId());
+			// 补全信息
+			tbItemDesc.setItemDesc(desc);
+			tbItemDesc.setUpdated(date);
+			tbItemDescMapper.updateByPrimaryKeyWithBLOBs(tbItemDesc);
+			// 同步更新索引库
+            // TODO
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+			return AiyouResultData.build(-1, "修改商品信息异常");
+		}
+		return AiyouResultData.ok();
+	}
+ 
+	@Override
+	public TbItem getTbItemById(Long itemId)
+	{
+		try
+		{
+			// 从缓存中获取数据
+			if (itemId != null)
+			{
+				// 获取数据
+				String str = tbJedisClientService.get(AIYOU_TB_SERVICE_ITEM_INFO_KEY + ":" + itemId + ":BASE");
+				if (!StringUtils.isEmpty(str))
+				{
+					// 重置数据的有效时间
+					tbJedisClientService.expire(AIYOU_TB_SERVICE_ITEM_INFO_KEY + ":" + itemId + ":BASE",
+							AIYOU_TB_SERVICE_ITEM_INFO_KEY_EXPIRE);
+					// 解析数据并返回
+					TbItem tbItemCache = JsonUtils.jsonToPojo(str, TbItem.class);
+					return tbItemCache;
+				}
+			}
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		// 从数据库中获取数据
+		TbItem tbItem = tbItemMapper.selectByPrimaryKey(itemId);
+		try
+		{
+			// 新增缓存
+			tbJedisClientService.set(AIYOU_TB_SERVICE_ITEM_INFO_KEY + ":" + itemId + ":BASE",
+					JsonUtils.objectToJson(tbItem));
+			// 设置过期时间
+			tbJedisClientService.expire(AIYOU_TB_SERVICE_ITEM_INFO_KEY + ":" + itemId + ":BASE",
+					AIYOU_TB_SERVICE_ITEM_INFO_KEY_EXPIRE);
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+		return tbItem;
+	}
+ 
+}
+```
+
+补充说明：
+
+本项目中关于键的定义规范说明，举例：
+
+AIYOU_TB_SERVICE_ITEM_INFO_KEY
+
+主题：AIYOU
+
+前缀：TB
+
+服务端/本地：SERVICE/LOCAL
+
+键的具体表示内容/作用：ITEM_INFO_KEY
+
+更多规范：参考 《 [Java 工程师开发规范，我看行！](https://download.csdn.net/download/Hello_World_QWP/12618365) 》
