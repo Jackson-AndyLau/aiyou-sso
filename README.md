@@ -1,7 +1,7 @@
 # aiyou-sso
 # 哎哟商城单点登录系统
 ## 目录
-- [前言](https://github.com/Jackson-AndyLau/aiyou-sso#%E7%9B%AE%E5%BD%95)
+- [前言](https://github.com/Jackson-AndyLau/aiyou-sso#%E5%89%8D%E8%A8%80)
 - [一、项目总体架构](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%B8%80%E9%A1%B9%E7%9B%AE%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84)
 - [二、系统软硬件设施总体规划](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%BA%8C%E7%B3%BB%E7%BB%9F%E8%BD%AF%E7%A1%AC%E4%BB%B6%E8%AE%BE%E6%96%BD%E6%80%BB%E4%BD%93%E8%A7%84%E5%88%92)
 - [三、项目数据库创建](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%B8%89%E9%A1%B9%E7%9B%AE%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%9B%E5%BB%BA)
