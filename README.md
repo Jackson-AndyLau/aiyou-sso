@@ -1037,5 +1037,9 @@ AIYOU_TB_SERVICE_ITEM_INFO_KEY
 **技术在不断的进步，要想走技术的这条道路，站稳脚跟，就要保持持续的学习态度，好好学习，天天向上。**
 
 **————不积跬步，无以至千里；不积小流，无以成江海。**
+<br>
+<br>
+<br>
+**《 [CSDN -> B2C商城项目源码说明，基于Java开发的高可用分布式B2C商城系统](https://blog.csdn.net/Hello_World_QWP/article/details/106919419) 》**
 
-《 [CSDN -> B2C商城项目源码，基于Java开发的高可用分布式B2C商城系统，Java+Spring MVC+Dubbo+Zookeeper+MySQL+Redis+FastDFS+Nginx+Solr](https://blog.csdn.net/Hello_World_QWP/article/details/106919419) 》
+[>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>回到顶部<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<](https://github.com/Jackson-AndyLau/aiyou-sso/blob/master/README.md#aiyou-sso)
