@@ -60,104 +60,132 @@ vaiyou-order-web|	订单系统	|2|	1	|192.168.159.147|	8001~8002|
 
 ### 1、aiyou-parent
 
-项目地址：《 GitHub aiyou-parent 项目地址[GitHub aiyou-parent 项目地址](https://github.com/Jackson-AndyLau/aiyou-parent) 》
+项目地址：《 [GitHub aiyou-parent 项目地址](https://github.com/Jackson-AndyLau/aiyou-parent) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-parent.git
 
  
 
-2、aiyou-common
+### 2、aiyou-common
 
-项目地址：《 GitHub aiyou-common 项目地址 》
+项目地址：《 [GitHub aiyou-common 项目地址](https://github.com/Jackson-AndyLau/aiyou-common) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-common.git
 
  
 
-3、aiyou-manager
+### 3、aiyou-manager
 
-项目地址：《 GitHub aiyou-manager 项目地址 》
+项目地址：《 [GitHub aiyou-manager 项目地址](https://github.com/Jackson-AndyLau/aiyou-manager) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-manager.git
 
  
 
-4、aiyou-content
+### 4、aiyou-content
 
-项目地址：《 GitHub aiyou-content 项目地址 》
+项目地址：《 [GitHub aiyou-content 项目地址](https://github.com/Jackson-AndyLau/aiyou-content) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-content.git
 
  
 
-5、aiyou-manager-web
+### 5、aiyou-manager-web
 
-项目地址：《 GitHub aiyou-manager-web 项目地址 》
+项目地址：《 [GitHub aiyou-manager-web 项目地址](https://github.com/Jackson-AndyLau/aiyou-manager-web) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-manager-web.git
 
  
 
-6、aiyou-portal-web
+### 6、aiyou-portal-web
 
-项目地址：《 GitHub aiyou-portal-web 项目地址 》
+项目地址：《 [GitHub aiyou-portal-web 项目地址](https://github.com/Jackson-AndyLau/aiyou-portal-web) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-portal-web.git
 
  
 
-7、aiyou-search
+### 7、aiyou-search
 
-项目地址：《 GitHub aiyou-search 项目地址 》
+项目地址：《 [GitHub aiyou-search 项目地址](https://github.com/Jackson-AndyLau/aiyou-search) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-search.git
 
  
 
-8、aiyou-search-web
+### 8、aiyou-search-web
 
-项目地址：《 GitHub aiyou-search-web 项目地址 》
+项目地址：《 [GitHub aiyou-search-web 项目地址](https://github.com/Jackson-AndyLau/aiyou-search-web) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-search-web.git
 
  
 
-9、aiyou-item-web
+### 9、aiyou-item-web
 
-项目地址：《 GitHub aiyou-item-web 项目地址 》
+项目地址：《 [GitHub aiyou-item-web 项目地址](https://github.com/Jackson-AndyLau/aiyou-item-web) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-item-web.git
 
  
 
-10、aiyou-sso
+### 10、aiyou-sso
 
-项目地址：《 GitHub aiyou-sso 项目地址 》
+项目地址：《 [GitHub aiyou-sso 项目地址](https://github.com/Jackson-AndyLau/aiyou-sso) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-sso.git
 
  
 
-11、aiyou-sso-web
+### 11、aiyou-sso-web
 
-项目地址：《 GitHub aiyou-sso-web 项目地址 》
+项目地址：《 [GitHub aiyou-sso-web 项目地址](https://github.com/Jackson-AndyLau/aiyou-sso-web) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-sso-web.git
 
  
 
-12、aiyou-cart
+### 12、aiyou-cart
 
-项目地址：《 GitHub aiyou-cart 项目地址 》
+项目地址：《 [GitHub aiyou-cart 项目地址](https://github.com/Jackson-AndyLau/aiyou-cart) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-cart.git
 
  
 
-13、aiyou-cart-web
+### 13、aiyou-cart-web
 
-项目地址：《 GitHub aiyou-cart-web 项目地址 》
+项目地址：《 [GitHub aiyou-cart-web 项目地址](https://github.com/Jackson-AndyLau/aiyou-cart-web) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-cart-web.git
 
  
 
-14、aiyou-order
+### 14、aiyou-order
 
-项目地址：《 GitHub aiyou-order 项目地址 》
+项目地址：《 [GitHub aiyou-order 项目地址](https://github.com/Jackson-AndyLau/aiyou-order) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-order.git
 
  
 
-15、aiyou-order-web
+### 15、aiyou-order-web
 
-项目地址：《 GitHub aiyou-order-web 项目地址 》
+项目地址：《 [GitHub aiyou-order-web 项目地址](https://github.com/Jackson-AndyLau/aiyou-order-web) 》<br>
 项目拉取地址：https://github.com/Jackson-AndyLau/aiyou-order-web.git
+
+
+项目拉取完成后，工程目录如下图：
+![项目结构图片](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/QQ%E5%9B%BE%E7%89%8720200820153005.png)
+
+
+![项目结构图片](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/QQ%E5%9B%BE%E7%89%8720200820154105.png)
+
+
+## 五、应用服务启动
+
+### 1、首先需要启动后台服务
+1、aiyou-manager <br>
+2、aiyou-content<br>
+3、aiyou-search<br>
+4、aiyou-sso<br>
+5、aiyou-cart<br>
+6、aiyou-order<br>
+
+### 2、再启动前端WEB服务
+1、aiyou-manager-web<br>
+2、aiyou-portal-web<br>
+3、aiyou-search-web<br>
+4、aiyou-item-web<br>
+5、aiyou-sso-web<br>
+6、aiyou-cart-web<br>
+7、aiyou-order-web<br>
+
 
