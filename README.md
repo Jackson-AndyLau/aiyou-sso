@@ -1,7 +1,7 @@
 # aiyou-sso
 # 哎哟商城单点登录系统
 ## 一、项目总体架构
-![商城系统总体架构](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/QQ%E5%9B%BE%E7%89%8720200701113619.png)
+![商城系统总体架构](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200701113619.png)
 
 **本B2C商城通过三层架构实现，分别为：表现层、服务层、持久层；**
 
@@ -163,10 +163,10 @@ vaiyou-order-web|	订单系统	|2|	1	|192.168.159.147|	8001~8002|
 
 
 项目拉取完成后，工程目录如下图：
-![项目结构图片](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/QQ%E5%9B%BE%E7%89%8720200820153005.png)
+![项目结构图片](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200820153005.png)
 
 
-![项目结构图片](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/QQ%E5%9B%BE%E7%89%8720200820154105.png)
+![项目结构图片](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200820154105.png)
 
 
 ## 五、应用服务启动
@@ -982,3 +982,58 @@ AIYOU_TB_SERVICE_ITEM_INFO_KEY
 键的具体表示内容/作用：ITEM_INFO_KEY
 
 更多规范：参考 《 [Java 工程师开发规范，我看行！](https://download.csdn.net/download/Hello_World_QWP/12618365) 》
+
+## 七、项目效果图参数
+
+### 1、商城后台管理界面效果展示
+
+后台管理系统-菜单栏展示
+
+![后台管理系统-菜单栏展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826103538.png)
+
+后台管理系统-新增商品
+
+![后台管理系统-新增商品](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826152433.png)
+
+后台管理系统-商品管理界面展示
+
+![后台管理系统-商品管理界面展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826103857.png)
+
+后台管理系统-内容分类管理界面展示
+
+![后台管理系统-内容分类管理界面展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826104144.png)
+
+后台管理系统-内容管理界面展示
+
+![后台管理系统-内容管理界面展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826110616.png)
+
+后台管理系统-新增内容界面展示
+
+![后台管理系统-新增内容界面展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826111234.png)
+
+### 2、商城门户网站界面效果展示
+
+门户网站-商城首页展示
+
+![门户网站-商城首页展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826143452.png)
+
+门户网站-商品搜索页展示
+
+![门户网站-商品搜索页展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826144933.png)
+
+门户网站-商品详情页面展示
+
+![门户网站-商品详情页面展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826145444.png)
+
+门户网站-登录页面展示
+
+![门户网站-登录页面展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826150715.png)
+
+门户网站-注册页面展示
+
+![门户网站-注册页面展示](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200826151159.png)
+
+## 八、结束语
+**技术在不断的进步，要想走技术的这条道路，站稳脚跟，就要保持持续的学习态度，好好学习，天天向上。**
+
+**————不积跬步，无以至千里；不积小流，无以成江海。**
