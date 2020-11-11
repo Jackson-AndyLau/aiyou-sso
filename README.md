@@ -11,6 +11,15 @@
 - [七、项目效果图展示](https://github.com/Jackson-AndyLau/aiyou-sso#%E4%B8%83%E9%A1%B9%E7%9B%AE%E6%95%88%E6%9E%9C%E5%9B%BE%E5%B1%95%E7%A4%BA)
 - [八、结束语](https://github.com/Jackson-AndyLau/aiyou-sso#%E5%85%AB%E7%BB%93%E6%9D%9F%E8%AF%AD)
 
+## 前言
+这个类似于电商的项目为什么说是B2C项目，是个人取的，何为电商，全称为电子商务，是指在互联网（Internet）、内部网（Intranet）和增值网（VAN，Value Added Network）上以电子交易方式进行交易活动和相关服务活动，是传统商业活动各环节的电子化、网络化。
+
+当然，电商涵盖的范围很广，一般以三大电商模式为代表，即企业对企业（B2B/Business-to-Business）、企业对消费者（B2C/Business-to-Consumer）、消费者对消费者（C2C/Consumer-to-Consumer）。
+
+随着国民经济网络化、社会生活信息化，国内互联网使用人数的爆发式增长，利用互联网进行网络购物消费，网上交易的方式已渐趋流行，所以，各种类型的电商网站也将层出不穷。迸发了包括：线上到线下（O2O/Online To Offline）、消费者对企业（C2B/Consumer-to-Business)、企业对市场营销（B2M/Business-to-Marketing）、生产厂家对消费者（M2C/Manufacturers-to-Consumer）、企业对行政机构（B2A/Business-to-Administration）、消费者对行政机构（C2A/Consumer-to-Administration）等电商模式。
+
+本B2C商城，基于Java开发的高可用分布式B2C商城系统，技术架构：Java、JSP、CSS、JQuery、Spring MVC、Dubbo、Zookeeper、MySQL、Redis、FastDFS、Nginx、Solr。本项目的所有源码均已上传到GitHub开源，仅供学习交流，如果有什么问题欢迎留言讨论，如果有不足的地方，欢迎指正。
+
 ## 一、项目总体架构
 ![商城系统总体架构](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200701113619.png)
 
