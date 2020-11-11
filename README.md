@@ -1,5 +1,16 @@
 # aiyou-sso
 # 哎哟商城单点登录系统
+## 目录
+- 前言
+- 一、项目总体架构
+- 二、系统软硬件设施总体规划
+- 三、项目数据库创建
+- 四、项目拉取
+- 五、应用服务启动
+- 六、B2C商城示例代码演示
+- 七、项目效果图展示
+- 八、结束语
+
 ## 一、项目总体架构
 ![商城系统总体架构](https://raw.githubusercontent.com/Jackson-AndyLau/pictures-storage/master/002/202011/20200701113619.png)
 
@@ -983,7 +994,7 @@ AIYOU_TB_SERVICE_ITEM_INFO_KEY
 
 更多规范：参考 《 [Java 工程师开发规范，我看行！](https://download.csdn.net/download/Hello_World_QWP/12618365) 》
 
-## 七、项目效果图参数
+## 七、项目效果图展示
 
 ### 1、商城后台管理界面效果展示
 
